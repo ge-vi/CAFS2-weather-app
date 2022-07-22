@@ -106,3 +106,4 @@ dist
 .prettierrc
 .idea
 /public/stylesheets/style.css
+mix-manifest.json
