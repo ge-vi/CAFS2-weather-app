@@ -109,3 +109,4 @@ dist
 mix-manifest.json
 /mix.js.map
 /public/stylesheets/style.css.map
+_tmp

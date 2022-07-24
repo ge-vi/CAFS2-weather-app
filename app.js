@@ -1,26 +1,30 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const hbs = require('hbs');
 
 const app = express();
-
-// const METEOSERVICE_URL = 'https://api.meteo.lt/v1/places';
-
-const indexRouter = require('./routes/index');
-const citiesRouter = require('./routes/cities');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+hbs.registerHelper(
+  'translate',
+  require('./helpers/handlebars-translate')
+);
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// routes and navigation
+const indexRouter = require('./routes/index');
+const citiesRouter = require('./routes/cities');
 
 app.use('/', indexRouter);
 app.use('/cities', citiesRouter);

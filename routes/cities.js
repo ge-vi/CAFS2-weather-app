@@ -4,10 +4,9 @@ const router = express.Router();
 
 const pageData = {};
 
-/* GET users listing. */
 router.get('/:city', function(req, res, next) {
 
-  const city = req.params?.city;
+  const city = req.params.city;
 
   getPlaceForecast(city).then(cityRes => {
     if (!cityRes.data) {

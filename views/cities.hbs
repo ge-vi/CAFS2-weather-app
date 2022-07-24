@@ -1,11 +1,25 @@
-<h1>Savaitės orų prognozė</h1>
+<h2>Savaitės orų prognozė</h2>
 
-<h2>Miestas: {{forecast.place.name}}</h2>
+<h3>Miestas: {{forecast.place.name}}</h3>
 
-<ul>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
   {{#each forecast.forecastTimestamps}}
-    <li>Data: {{this.forecastTimeUtc}}<br>
-      Vėjas: {{this.windSpeed}}<br>
-      Oro temperatūra: {{this.airTemperature}}</li>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{this.forecastTimeUtc}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><span class='text-muted'>Oro temperatūra</span><br><span
+            class='fs-3'>{{this.airTemperature}} &deg;C</li>
+          <li class="list-group-item"><span class='text-muted'>Vėjo greitis</span><br><span
+            class='fs-2'>{{this.windSpeed}} m/s</span></li>
+          <li class="list-group-item"><span class='text-muted'>Krituliai</span><br><span class='fs-2'>{{translate
+            this.conditionCode}}</span></li>
+          <li class="list-group-item"><span class='text-muted'>Kritulių kiekis</span><br><span
+            class='fs-2'>{{this.totalPrecipitation}} mm/val</span></li>
+        </ul>
+      </div>
+    </div>
   {{/each}}
-</ul>
+</div>

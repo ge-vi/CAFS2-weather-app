@@ -32,11 +32,9 @@ function isPlaceExists(placeCode) {
     });
 }
 
-// https://api.meteo.lt/v1/places/vilnius/forecasts/long-term
 async function getPlaceForecast(placeCode) {
   try {
-    const response = await axios.get(`${METEO_PLACES_SERVICE_URL}/${placeCode}/forecasts/long-term`);
-    return response;
+    return await axios.get(`${METEO_PLACES_SERVICE_URL}/${placeCode}/forecasts/long-term`);
   } catch (err) {
     return '';
   }
