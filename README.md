@@ -5,7 +5,7 @@ WeatherApp is built using:
 - [NodeJS](https://nodejs.org/en/docs/)
 - [Express](https://expressjs.com/en/4x/api.html)
 - [Laravel Mix](https://laravel-mix.com/docs/6.0/what-is-mix)
-- Axios
+- [Axios](https://axios-http.com/docs/api_intro)
 - [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction)
 - [Handlebars](https://www.npmjs.com/package/express-handlebars)
 
@@ -34,6 +34,17 @@ _Lithuanian Hydrometeorological Service_
 
 `$ npm run mix`
 
+### Run the app
+
+`$ npm start`
+
+## Use WeatherApp
+
+In your browser open: http://localhost:3000
+
+
+---
+
 ### Run the app with debugger
 
 On macOS or Linux, run the app with this command:  
@@ -45,13 +56,7 @@ On Windows Command Prompt, use this command:
 On Windows PowerShell, use this command:  
 `PS> $env:DEBUG='cafs2-weather-app:*'; npm start`
 
-## Use WeatherApp
-
-In your browser open: http://localhost:3000
-
-
 ---
 
 Express enables this setting by default when in production mode, i.e.:
-
 process.env.NODE_ENV === "production"
