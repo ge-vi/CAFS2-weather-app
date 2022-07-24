@@ -1,0 +1,11 @@
+<h1>Savaitės orų prognozė</h1>
+
+<h2>Miestas: {{forecast.place.name}}</h2>
+
+<ul>
+  {{#each forecast.forecastTimestamps}}
+    <li>Data: {{this.forecastTimeUtc}}<br>
+      Vėjas: {{this.windSpeed}}<br>
+      Oro temperatūra: {{this.airTemperature}}</li>
+  {{/each}}
+</ul>

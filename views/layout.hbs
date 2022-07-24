@@ -1,24 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<html>
+<html lang="{{#if lang}}{{lang}}{{else}}lt{{/if}}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{{title}}</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
 
 <div class="container my-5">
-  <div class='row'>
+  <div class="row">
     <div class="col">
-
-      {{{body}}}
-
+      <p class="text-center">Header</p>
     </div>
   </div>
 </div>
+
+<main class="container">
+
+  {{{body}}}
+
+</main>
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col">
+      <p class="text-center">Metrologiniai duomenys teikiami<br>
+        <em>Lietuvos hidrometeorologijos tarnybos prie Aplinkos ministerijos</em><br>
+        <a href="https://api.meteo.lt" target="_blank">api.meteo.lt</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="/javascripts/script.js"></script>
 
 </body>
 </html>

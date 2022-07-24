@@ -1,9 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const meteoService = require('../services/MeteoApiService');
+const app = require('../app');
+const axios = require('axios');
+
+
+const pageData = {
+  lang: 'lt-lt',
+  title: 'Orų prognozė Jūsų miestui'
+};
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Weather App' });
+  const placeVilnius = meteoService.isPlaceExists('vilnius');
+  placeVilnius.then(zzz => console.log(zzz));
+
+  res.render('index', pageData);
 });
 
 module.exports = router;
