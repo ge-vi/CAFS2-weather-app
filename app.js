@@ -25,9 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routes and navigation
 const indexRouter = require('./routes/index');
 const citiesRouter = require('./routes/cities');
+const forecastRouter = require('./routes/api/v1/forecast-endpoint');
 
 app.use('/', indexRouter);
 app.use('/cities', citiesRouter);
+app.use('/api/v1/forecast', forecastRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

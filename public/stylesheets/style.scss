@@ -1,5 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 
-#city-search .card-body {
+#city-search-card .card-body {
   padding: 1px;
+  border-top: var(--bs-card-border-width) solid var(--bs-card-border-color);
+}
+
+#city-search-card .card-header {
+  border-bottom: none;
 }

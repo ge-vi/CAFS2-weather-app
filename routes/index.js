@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const meteoService = require('../services/MeteoApiService');
+const meteoData = require('../services/MeteoData');
 const app = require('../app');
 const axios = require('axios');
 
 
 const pageData = {
-  lang: 'lt-lt',
+  lang: 'lt',
   title: 'Orų prognozė Jūsų miestui'
 };
 
