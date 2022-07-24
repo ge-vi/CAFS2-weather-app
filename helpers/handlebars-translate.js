@@ -4,7 +4,9 @@
  */
 
 module.exports = function(stringToTranslate) {
+
   const stringsLt = [];
+
   stringsLt.push('clear', 'giedra');
   stringsLt.push('isolated-clouds', 'mažai debesuota');
   stringsLt.push('scattered-clouds', 'debesuota su pragiedruliais');
@@ -19,8 +21,5 @@ module.exports = function(stringToTranslate) {
   stringsLt.push('na', 'oro sąlygos nenustatytos');
 
   let index = stringsLt.findIndex(value => value === stringToTranslate);
-  if (index === -1) {
-    return stringsLt[stringsLt.length - 1];
-  }
-  return stringsLt[++index];
+  return index === -1 ? stringsLt[stringsLt.length - 1] : stringsLt[++index];
 };
