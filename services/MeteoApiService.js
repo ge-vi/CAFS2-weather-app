@@ -11,18 +11,9 @@ function getAllPlaces() {
           return place;
         }
       });
-    })
-    .catch(err => {
-      // todo handle error
-      console.error(err);
     });
 }
 
-/**
- *
- * @param placeCode
- * @returns {Promise<string|AxiosResponse<any>>}
- */
 async function getPlaceForecast(placeCode) {
   try {
     return await axios.get(`${METEO_PLACES_SERVICE_URL}/${placeCode}/forecasts/long-term`);
@@ -31,18 +22,4 @@ async function getPlaceForecast(placeCode) {
   }
 }
 
-function isPlaceExists(placeCode) {
-  return axios
-    .get(METEO_PLACES_SERVICE_URL)
-    .then(places => {
-      return places.data.some(place => {
-        return place.code === placeCode;
-      });
-    })
-    .catch(err => {
-      // todo handle error
-      console.error(err);
-    });
-}
-
-module.exports = { getAllPlaces, isPlaceExists, getPlaceForecast };
+module.exports = { getAllPlaces, getPlaceForecast };

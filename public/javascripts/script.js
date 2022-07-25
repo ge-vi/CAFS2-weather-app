@@ -15,18 +15,34 @@ function createLinkedListItem(parentElem, linkHref, linkText) {
   parentElem.append(divWrapper);
 }
 
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
 document.getElementById('city-search')
-  .addEventListener('keyup', function(evt) {
+  ?.addEventListener('keyup', (evt) => {
 
-    let inputValue = this.value;
+    let inputValue = evt.target.value;
+    if (!inputValue) {
+      return;
+    }
 
-    fetch(`/api/v1/forecast/places/find/${inputValue}`)
+    htmlCitySearchBody.classList.add('d-none');
+    removeAllChildNodes(htmlCitySearchBody);
+
+    fetch(`/api/v1/forecast/places/${inputValue}`)
       .then(response => response.json())
       .then(cities => {
-        htmlCitySearchBody.classList.remove('d-none');
+        if (cities.length >= 1) {
+          htmlCitySearchBody.classList.remove('d-none');
+        }
         cities.forEach(city => {
           createLinkedListItem(htmlCitySearchBody, `/cities/${city.code}`, city.name);
         });
       })
-      .catch(err => console.error(err));
+      .catch(error => {
+        console.error(error);
+      });
   });

@@ -10,14 +10,22 @@
           <h5 class="card-title">{{this.forecastTimeUtc}}</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><span class="text-muted">Oro temperatūra</span><br><span
-            class="fs-2">{{this.airTemperature}} &deg;C</li>
-          <li class="list-group-item"><span class="text-muted">Vėjo greitis</span><br><span
-            class="fs-3">{{this.windSpeed}} m/s</span></li>
-          <li class="list-group-item"><span class="text-muted">Krituliai</span><br><span class="fs-3">{{translate
-            this.conditionCode}}</span></li>
-          <li class="list-group-item"><span class="text-muted">Kritulių kiekis</span><br><span
-            class="fs-3">{{this.totalPrecipitation}} mm/val</span></li>
+          <li class="list-group-item">
+            <span class="text-muted">Oro temperatūra</span><br>
+            <span class="fs-2">{{this.airTemperature}} &deg;</span>
+          </li>
+          <li class="list-group-item">
+            <span class="text-muted">Vėjo greitis</span><br>
+            <span class="fs-3">{{this.windSpeed}} m/s</span>
+          </li>
+          <li class="list-group-item">
+            <span class="text-muted">Krituliai</span><br>
+            <span class="fs-3">{{translate this.conditionCode}}</span>
+          </li>
+          <li class="list-group-item">
+            <span class="text-muted">Kritulių kiekis</span><br>
+            <span class="fs-3">{{this.totalPrecipitation}} mm/val</span>
+          </li>
         </ul>
       </div>
     </div>

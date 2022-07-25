@@ -4,7 +4,7 @@ const router = express.Router();
 
 const pageData = {};
 
-router.get('/:city', function(req, res, next) {
+router.get('/:city', function(req, res) {
 
   const city = req.params.city;
 
