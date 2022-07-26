@@ -1,22 +1,30 @@
 const express = require('express');
-const { getPlaceForecast } = require('../services/MeteoApiService');
 const router = express.Router();
+const { AxiosError } = require('axios');
+const meteoApiService = require('../services/MeteoApiService');
+
 
 const pageData = {};
 
-router.get('/:city', function(req, res) {
+router.get('/:city', (request, response) => {
 
-  const city = req.params.city;
+  const city = request.params.city;
 
-  getPlaceForecast(city).then(cityRes => {
-    if (!cityRes.data) {
-      res.send('no data');
-    } else {
+  meteoApiService.getPlaceForecast(city)
+    .then(cityRes => {
       pageData.title = `Orų prognozė, miestas: ${cityRes.data.place.name}`;
       pageData.forecast = cityRes.data;
-    }
-    res.render('cities', pageData);
-  });
+      response.render('cities', pageData);
+    })
+    .catch(error => {
+      if (error instanceof AxiosError) {
+        response.sendStatus(error.response.status);
+      } else {
+        console.error(error);
+        response.redirect('/');
+      }
+    });
+
 });
 
 module.exports = router;

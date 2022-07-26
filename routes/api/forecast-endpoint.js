@@ -3,23 +3,26 @@ const router = express.Router();
 
 const meteoData = require('../../services/MeteoData');
 
-router.get('/places/:name', function(req, res) {
+router.get('/places/:name', async (request, response) => {
 
-  const searchString = req.params.name;
+  const searchString = request.params.name;
   let placesFiltered = [];
 
   if (searchString && searchString.length >= 3) {
     meteoData.getPlaces()
       .then(places => {
-        if (places) {
+
+          if (!places) {
+            response.json([]);
+            return;
+          }
           placesFiltered = places.filter(place => place.name.toLowerCase().startsWith(searchString.toLowerCase()));
-          res.json(placesFiltered.slice(0, 10));
+          response.json(placesFiltered.slice(0, 10));
         }
-        res.json([]);
-      })
+      )
       .catch(error => {
         if (error.response) {
-          res.sendStatus(error.response.status);
+          response.sendStatus(error.response.status);
         } else {
           console.log(error);
         }
