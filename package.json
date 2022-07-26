@@ -7,7 +7,8 @@
     "start:dev": "set DEBUG=cafs2-weather-app:* & nodemon ./bin/www",
     "mix:dev": "mix",
     "mix:watch": "mix watch",
-    "mix": "mix --production"
+    "mix": "mix --production",
+    "build-and-start": "mix && NODE_ENV=production node ./bin/www"
   },
   "dependencies": {
     "axios": "^0.27.2",

@@ -16,7 +16,7 @@ _Lithuanian Hydrometeorological Service_
 
 ---
 
-## Clone > Install > Build > Run
+## Clone, Install, Build, Run
 
 ### Get the code
 
@@ -30,13 +30,10 @@ _Lithuanian Hydrometeorological Service_
 
 `$ npm install`
 
-### Build app
+### Build and run app
 
-`$ npm run mix`
+`$ npm run build-and-start`
 
-### Run the app
-
-`$ npm start`
 
 ## Use WeatherApp
 
