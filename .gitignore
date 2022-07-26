@@ -105,8 +105,7 @@ dist
 
 .prettierrc
 .idea
-/public/stylesheets/style.css
+/public/
 mix-manifest.json
 /mix.js.map
-/public/stylesheets/style.css.map
 _tmp
