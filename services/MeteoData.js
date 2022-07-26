@@ -2,8 +2,9 @@ const meteoApiService = require('./MeteoApiService');
 const cache = require('memory-cache');
 
 module.exports.getPlaces = async function() {
-  if (cache.get('places')) {
-    return cache.get('places');
+  const data = cache.get('places');
+  if (data) {
+    return data;
   } else {
     const places = await meteoApiService.getAllPlaces();
     // time to keep cached data: 15 min

@@ -1,5 +1,4 @@
-const axios = require('axios').default;
-// axios.<method> will now provide autocomplete and parameter typings
+const axios = require('axios');
 
 const METEO_PLACES_SERVICE_URL = 'https://api.meteo.lt/v1/places';
 
@@ -17,7 +16,6 @@ async function getAllPlaces() {
 }
 
 async function getPlaceForecast(placeCode) {
-  // noinspection UnnecessaryLocalVariableJS
   const axiosResponse = await axios.get(`${METEO_PLACES_SERVICE_URL}/${placeCode}/forecasts/long-term`);
   return axiosResponse;
 }

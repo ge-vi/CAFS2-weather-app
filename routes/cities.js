@@ -4,10 +4,9 @@ const { AxiosError } = require('axios');
 const meteoApiService = require('../services/MeteoApiService');
 
 
-const pageData = {};
-
 router.get('/:city', (request, response) => {
 
+  const pageData = {};
   const city = request.params.city;
 
   meteoApiService.getPlaceForecast(city)

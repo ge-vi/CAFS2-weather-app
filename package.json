@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "NODE_ENV=production node ./bin/www",
     "start:dev": "set DEBUG=cafs2-weather-app:* & nodemon ./bin/www",
     "mix:dev": "mix",
     "mix:watch": "mix watch",
